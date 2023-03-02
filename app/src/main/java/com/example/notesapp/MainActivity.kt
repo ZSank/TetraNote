@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 //		val navController = this.findNavController(R.id.fragmentContainerView)
 //		NavigationUI.setupActionBarWithNavController(this, navController)
 	}
-//This is test
 	//	override fun onNavigateUp(): Boolean {
 //		val navController = this.findNavController(R.id.nav_host_fragment)
 //		return navController.navigateUp()
