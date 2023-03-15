@@ -13,3 +13,12 @@ The app has several features, including:
 3. Note Editing: Users can edit their notes anytime by tapping on the note they want to edit.
 4. Note Deletion: Users can delete notes they no longer need.
 5. Dark Mode: The app also features a dark mode option for users who prefer a darker color scheme.
+
+This project is still work in progress
+
+# Other
+## Todo
+1. Firebase Authentication using google
+2. Basic UI Animations
+3. Update Logo
+4. Local Notifications
