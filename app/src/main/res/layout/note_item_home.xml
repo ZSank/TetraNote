@@ -9,8 +9,8 @@
 	<LinearLayout
 		android:id="@+id/layout"
 		android:layout_width="match_parent"
-		android:background="#F1F1F1"
 		android:layout_height="@dimen/notehomeitemheight"
+
 		android:orientation="vertical">
 
 		<TextView
@@ -18,21 +18,27 @@
 			android:layout_width="match_parent"
 			android:layout_height="45dp"
 			android:layout_marginBottom="5dp"
-			android:textSize="20sp"
-			android:padding="10dp"
+			android:background="@drawable/rounded_rectangle"
 
+			android:gravity="center_vertical"
 			android:hint="Untitled"
+			android:padding="10dp"
+			android:textSize="20sp"
+			android:textStyle="bold"
 			tools:text="Title" />
-
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/textbcg"/>
 		<TextView
 			android:id="@+id/description"
 			android:layout_width="match_parent"
 			android:layout_height="50dp"
-			tools:text="Description"
-			android:background="#EAEAEA"
+			android:backgroundTint="@color/textbcg"
 			android:hint="BlankBody"
+			android:textSize="15sp"
 			android:visibility="gone"
-			android:textSize="15sp" />
+			tools:text="Description" />
 
 	</LinearLayout>
 </layout>

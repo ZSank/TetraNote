@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<dimen name="notehomeitemheight">60dp</dimen>
+	<dimen name="text_shape_corner_radius">10dp</dimen>
+	<dimen name="text_layout_margin">10dp</dimen>
 </resources>

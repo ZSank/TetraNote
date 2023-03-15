@@ -13,7 +13,6 @@
 		tools:context=".MainActivity">
 
 
-
 		<androidx.fragment.app.FragmentContainerView
 			android:id="@+id/fragmentContainerView"
 			android:name="androidx.navigation.fragment.NavHostFragment"

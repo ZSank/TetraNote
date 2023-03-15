@@ -1,26 +1,26 @@
-package com.example.notesapp.ui.fragment
+package com.zsank.tetranote.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.notesapp.NoteApplication
-import com.example.notesapp.NoteViewModel
-import com.example.notesapp.NoteViewModelFactory
-import com.example.notesapp.R
-import com.example.notesapp.data.Note
-import com.example.notesapp.databinding.FragmentCreateNoteBinding
+import com.zsank.tetranote.NoteApplication
+import com.zsank.tetranote.NoteViewModel
+import com.zsank.tetranote.NoteViewModelFactory
+import com.zsank.tetranote.R
+import com.zsank.tetranote.data.Note
+import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
 
 
 private const val TAG = "note"
+
 class CreateNoteFragment : Fragment() {
-	private val viewModel : NoteViewModel by activityViewModels {
+	private val viewModel: NoteViewModel by activityViewModels {
 		NoteViewModelFactory(
 			(activity?.application as NoteApplication).database.noteDao()
 		)
@@ -31,15 +31,16 @@ class CreateNoteFragment : Fragment() {
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
 	): View? {
-		binding = DataBindingUtil.inflate(layoutInflater,R.layout.fragment_create_note, container, false)
-		binding.deleteFab.hide()
+		binding =
+			DataBindingUtil.inflate(layoutInflater, R.layout.fragment_create_note, container, false)
+		binding.deleteFab.hide() //TODO: Remove deleteFab.hide() from create and edit frag, when menu is used
 		return binding.root
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		binding.saveFab.setOnClickListener{
+		binding.saveFab.setOnClickListener {
 			saveNote()
 			val action = CreateNoteFragmentDirections.actionCreateNoteFragToHomeFrag()
 			findNavController().navigate(action)
@@ -47,13 +48,13 @@ class CreateNoteFragment : Fragment() {
 
 	}
 
-	private fun saveNote(){
+	private fun saveNote() {
 
 		binding.apply {
-			val note = Note(null, edtTitle.text.toString(),edtBody.text.toString())
+			val note = Note(null, edtTitle.text.toString(), edtBody.text.toString())
 			if (!note.title.isNullOrEmpty() or !note.body.isNullOrEmpty()) {
 				viewModel.insertNote(note)
-			} else{
+			} else {
 				Toast.makeText(requireContext(), "Not saved Empty", Toast.LENGTH_SHORT).show()
 			}
 		}

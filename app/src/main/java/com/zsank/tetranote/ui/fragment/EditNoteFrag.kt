@@ -1,4 +1,4 @@
-package com.example.notesapp.ui.fragment
+package com.zsank.tetranote.ui.fragment
 
 import android.os.Bundle
 import android.view.*
@@ -7,19 +7,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.notesapp.NoteApplication
-import com.example.notesapp.NoteViewModel
-import com.example.notesapp.NoteViewModelFactory
-import com.example.notesapp.R
-import com.example.notesapp.data.Note
-import com.example.notesapp.databinding.FragmentCreateNoteBinding
-import com.example.notesapp.databinding.FragmentEditNoteBinding
+import com.zsank.tetranote.NoteApplication
+import com.zsank.tetranote.NoteViewModel
+import com.zsank.tetranote.NoteViewModelFactory
+import com.zsank.tetranote.R
+import com.zsank.tetranote.data.Note
+import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
 
 private const val TAG = "test"
 
 class EditNoteFrag : Fragment() {
 	private lateinit var binding: FragmentCreateNoteBinding
-//	private lateinit var binding: FragmentEditNoteBinding
+
+	//	private lateinit var binding: FragmentEditNoteBinding
 	private val navigationArgs: EditNoteFragArgs by navArgs()
 	private val viewModel: NoteViewModel by activityViewModels {
 		NoteViewModelFactory(
@@ -88,7 +88,7 @@ class EditNoteFrag : Fragment() {
 		}
 	}
 
-	private fun deleteNote(note: Note){
+	private fun deleteNote(note: Note) {
 		viewModel.deleteNote(note)
 	}
 

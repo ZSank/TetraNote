@@ -1,4 +1,4 @@
-package com.example.notesapp.data
+package com.zsank.tetranote.data
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow

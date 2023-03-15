@@ -1,8 +1,8 @@
-package com.example.notesapp
+package com.zsank.tetranote
 
 import androidx.lifecycle.*
-import com.example.notesapp.data.Note
-import com.example.notesapp.data.NoteDao
+import com.zsank.tetranote.data.Note
+import com.zsank.tetranote.data.NoteDao
 import kotlinx.coroutines.launch
 
 class NoteViewModel(private val noteDao: NoteDao) : ViewModel() {
@@ -25,7 +25,7 @@ class NoteViewModel(private val noteDao: NoteDao) : ViewModel() {
 		}
 	}
 
-	fun deleteNote(note: Note){
+	fun deleteNote(note: Note) {
 		viewModelScope.launch {
 			noteDao.deleteNote(note)
 		}

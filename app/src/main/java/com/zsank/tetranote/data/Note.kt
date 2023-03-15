@@ -1,4 +1,4 @@
-package com.example.notesapp.data
+package com.zsank.tetranote.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Note(
-	@PrimaryKey (autoGenerate = true)
+	@PrimaryKey(autoGenerate = true)
 	val id: Int?,
-	@ColumnInfo (name = "title")
+	@ColumnInfo(name = "title")
 	val title: String?,
-	@ColumnInfo (name = "body")
+	@ColumnInfo(name = "body")
 	val body: String?
-		)
+)

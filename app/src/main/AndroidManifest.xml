@@ -3,7 +3,7 @@
 	xmlns:tools="http://schemas.android.com/tools">
 
 	<application
-		android:name="com.example.notesapp.NoteApplication"
+		android:name="com.zsank.tetranote.NoteApplication"
 		android:allowBackup="true"
 		android:dataExtractionRules="@xml/data_extraction_rules"
 		android:fullBackupContent="@xml/backup_rules"
@@ -14,17 +14,17 @@
 		tools:targetApi="31">
 		<activity
 			android:name=".SplashScreen"
-			android:exported="true" >
-<!--			<intent-filter>-->
-<!--				<action android:name="android.intent.action.MAIN" />-->
+			android:exported="true">
+			<!--			<intent-filter>-->
+			<!--				<action android:name="android.intent.action.MAIN" />-->
 
-<!--				<category android:name="android.intent.category.LAUNCHER" />-->
-<!--			</intent-filter>-->
+			<!--				<category android:name="android.intent.category.LAUNCHER" />-->
+			<!--			</intent-filter>-->
 		</activity>
 		<activity
 			android:name=".MainActivity"
-			android:theme="@style/Theme.App.Starting"
-			android:exported="true">
+			android:exported="true"
+			android:theme="@style/Theme.App.Starting">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 

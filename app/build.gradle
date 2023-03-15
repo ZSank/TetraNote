@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.notesapp'
+    namespace 'com.zsank.tetranote'
     compileSdk 33
 
     buildFeatures {
