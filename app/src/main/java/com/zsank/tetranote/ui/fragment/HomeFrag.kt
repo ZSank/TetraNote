@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.zsank.tetranote.NoteApplication
 import com.zsank.tetranote.NoteViewModel
@@ -14,13 +15,17 @@ import com.zsank.tetranote.NoteViewModelFactory
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFrag : Fragment() {
-	private val viewModel: NoteViewModel by activityViewModels {
-		NoteViewModelFactory(
-			(activity?.application as NoteApplication).database.noteDao()
-		)
-	}
+//	private val viewModel: NoteViewModel by activityViewModels {
+//		NoteViewModelFactory(
+//			(activity?.application as NoteApplication).database.noteDao()
+//		)
+//	}
+
+	private val viewModel: NoteViewModel by viewModels()
 	private lateinit var note: Note
 	private lateinit var binding: FragmentHomeBinding
 	override fun onCreateView(
@@ -55,6 +60,7 @@ class HomeFrag : Fragment() {
 		binding.AddNoteFab.setOnClickListener {
 			addNote()
 		}
+
 	}
 
 	private fun addNote() {

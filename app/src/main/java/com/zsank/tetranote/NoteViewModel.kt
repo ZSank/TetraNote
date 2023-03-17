@@ -3,9 +3,12 @@ package com.zsank.tetranote
 import androidx.lifecycle.*
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.data.NoteDao
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NoteViewModel(private val noteDao: NoteDao) : ViewModel() {
+@HiltViewModel
+class NoteViewModel @Inject constructor(private val noteDao: NoteDao) : ViewModel() {
 
 	val allNotes: LiveData<List<Note>> = noteDao.showAllNote().asLiveData()
 	val count = 50

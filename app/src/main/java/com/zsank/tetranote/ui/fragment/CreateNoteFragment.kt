@@ -7,24 +7,25 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.zsank.tetranote.NoteApplication
 import com.zsank.tetranote.NoteViewModel
-import com.zsank.tetranote.NoteViewModelFactory
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
 private const val TAG = "note"
 
+@AndroidEntryPoint
 class CreateNoteFragment : Fragment() {
-	private val viewModel: NoteViewModel by activityViewModels {
-		NoteViewModelFactory(
-			(activity?.application as NoteApplication).database.noteDao()
-		)
-	}
+	//	private val viewModel: NoteViewModel by activityViewModels {
+//		NoteViewModelFactory(
+//			(activity?.application as NoteApplication).database.noteDao()
+//		)
+//	}
+	private val viewModel: NoteViewModel by viewModels()
 	private lateinit var note: Note
 	private lateinit var binding: FragmentCreateNoteBinding
 	override fun onCreateView(

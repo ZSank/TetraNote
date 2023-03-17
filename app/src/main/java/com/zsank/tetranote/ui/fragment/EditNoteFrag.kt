@@ -5,6 +5,7 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.zsank.tetranote.NoteApplication
@@ -13,19 +14,22 @@ import com.zsank.tetranote.NoteViewModelFactory
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "test"
 
+@AndroidEntryPoint
 class EditNoteFrag : Fragment() {
 	private lateinit var binding: FragmentCreateNoteBinding
 
 	//	private lateinit var binding: FragmentEditNoteBinding
 	private val navigationArgs: EditNoteFragArgs by navArgs()
-	private val viewModel: NoteViewModel by activityViewModels {
-		NoteViewModelFactory(
-			(activity?.application as NoteApplication).database.noteDao()
-		)
-	}
+//	private val viewModel: NoteViewModel by activityViewModels {
+//		NoteViewModelFactory(
+//			(activity?.application as NoteApplication).database.noteDao()
+//		)
+//	}
+	private val viewModel: NoteViewModel by viewModels()
 	private var retrievedNote: Note? = null
 
 	override fun onCreateView(
@@ -35,7 +39,7 @@ class EditNoteFrag : Fragment() {
 		// Inflate the layout for this fragment
 		binding =
 			DataBindingUtil.inflate(layoutInflater, R.layout.fragment_create_note, container, false)
-		binding.deleteFab.show()
+		binding.deleteFab.hide()
 		return binding.root
 	}
 

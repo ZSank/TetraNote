@@ -1,8 +1,9 @@
 package com.zsank.tetranote
 
 import android.app.Application
-import com.zsank.tetranote.data.NoteDatabase
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class NoteApplication : Application() {
-	val database: NoteDatabase by lazy { NoteDatabase.getDatabase(this) }
+//	val database: NoteDatabase by lazy { NoteDatabase.getDatabase(this) }
 }
