@@ -6,6 +6,13 @@ Notes android app
 4. The app also uses LiveData and Data Binding to update the user interface in real-time.
 
 # Project Features:
+
+Home Screen | Note Edit Screen 
+--- | --- 
+<img src = "https://user-images.githubusercontent.com/123537240/225881177-dc83b3a5-49f0-4da7-8c53-8f6582bfbe1c.png" width = 250 >  | <img src = "https://user-images.githubusercontent.com/123537240/225881058-b37a8360-d9c0-46b8-8f07-c96650000cc4.png" width = 250> 
+
+
+
 The app has several features, including:
 
 1. Note Creation: Users can create notes with a title, description, and optional category, using a simple and intuitive interface.
@@ -22,3 +29,4 @@ This project is still work in progress
 2. Basic UI Animations
 3. Update Logo
 4. Local Notifications
+
