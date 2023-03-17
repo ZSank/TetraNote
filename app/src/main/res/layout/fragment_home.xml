@@ -9,8 +9,8 @@
 
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
-		android:background="@color/frag_bkg"
 		android:layout_height="match_parent"
+		android:background="@color/frag_bkg"
 		android:orientation="vertical"
 		tools:context=".ui.fragment.HomeFrag">
 
@@ -24,18 +24,36 @@
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent" />
 
+		<com.google.android.material.appbar.MaterialToolbar
+			android:id="@+id/materialToolbar"
+			android:layout_width="match_parent"
+			android:layout_height="80dp"
+			android:background="@color/md_theme_light_primaryContainer"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" >
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="TETRANOTE"
+				android:textStyle="bold"
+				android:textSize="25sp"/>
+		</com.google.android.material.appbar.MaterialToolbar>
+
 		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/rcyViewHome"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="0dp"
 			android:layout_margin="10dp"
 			android:clipToPadding="false"
-			tools:listitem="@layout/note_item_home"
 			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent"/>
+			app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+			tools:listitem="@layout/note_item_home" />
 
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
