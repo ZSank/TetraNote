@@ -1,9 +1,7 @@
 package com.zsank.tetranote.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -34,6 +32,7 @@ class HomeFrag : Fragment() {
 	): View? {
 		// Inflate the layout for this fragment
 		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+		setHasOptionsMenu(true)
 		return binding.root
 	}
 
@@ -67,4 +66,30 @@ class HomeFrag : Fragment() {
 		val action = HomeFragDirections.actionHomeFragToCreateNoteFrag()
 		findNavController().navigate(action)
 	}
+
+	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+		super.onCreateOptionsMenu(menu, inflater)
+		inflater.inflate(R.menu.menu_note_home, menu)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		return when (item.itemId) {
+			R.id.AboutMenu-> {
+				navigateToAbout()
+				true
+
+			}
+			R.id.AddNoteMenu-> {
+				addNote()
+				true
+			}
+			else -> super.onOptionsItemSelected(item)
+		}
+	}
+
+	private fun navigateToAbout() {
+		val action = HomeFragDirections.actionHomeFragToAboutFrag()
+		findNavController().navigate(action)
+	}
 }
+

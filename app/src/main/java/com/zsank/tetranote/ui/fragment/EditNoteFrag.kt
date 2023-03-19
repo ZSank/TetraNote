@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.zsank.tetranote.NoteApplication
 import com.zsank.tetranote.NoteViewModel
-import com.zsank.tetranote.NoteViewModelFactory
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
@@ -40,6 +37,7 @@ class EditNoteFrag : Fragment() {
 		binding =
 			DataBindingUtil.inflate(layoutInflater, R.layout.fragment_create_note, container, false)
 		binding.deleteFab.hide()
+		setHasOptionsMenu(true)
 		return binding.root
 	}
 
@@ -59,18 +57,22 @@ class EditNoteFrag : Fragment() {
 		}
 		binding.deleteFab.setOnClickListener {
 			deleteNote(retrievedNote!!)
-			val action = EditNoteFragDirections.actionEditNoteFragToHomeFrag()
-			findNavController().navigate(action)
+			navigateBackToHome()
 		}
 
 	}
 
-	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-		//		val inflater: MenuInflater = menuInflater
-		inflater.inflate(R.menu.editscrn, menu)
-//		return true
-		super.onCreateOptionsMenu(menu, inflater)
+	private fun navigateBackToHome() {
+		val action = EditNoteFragDirections.actionEditNoteFragToHomeFrag()
+		findNavController().navigate(action)
 	}
+
+//	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//		//		val inflater: MenuInflater = menuInflater
+//		inflater.inflate(R.menu.editscrn, menu)
+////		return true
+//		super.onCreateOptionsMenu(menu, inflater)
+//	}
 //	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 //		super.onCreateOptionsMenu(menu, inflater)
 //		inflater.inflate(R.menu.editscrn,menu)
@@ -96,5 +98,22 @@ class EditNoteFrag : Fragment() {
 		viewModel.deleteNote(note)
 	}
 
+	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+		super.onCreateOptionsMenu(menu, inflater)
+		inflater.inflate(R.menu.editmenu, menu)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		return when (item.itemId) {
+			R.id.deleteNoteMenu-> {
+				deleteNote(retrievedNote!!)
+				navigateBackToHome()
+				true
+
+			}
+			else -> super.onOptionsItemSelected(item)
+		}
+	}
 
 }
+

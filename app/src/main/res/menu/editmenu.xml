@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item
+		android:id="@+id/deleteNoteMenu"
+		android:title="Delete"/>
+</menu>
+
+<!--Menu can be nested-->
+<!--<item-->
+<!--android:id="@+id/file"-->
+<!--android:title="file">-->
+<!--<menu>-->
+<!--	<item-->
+<!--		android:id="@+id/create_new"-->
+<!--		android:title="create_new" />-->

@@ -80,6 +80,8 @@
 					android:layout_margin="10dp"
 					android:orientation="vertical">
 
+
+
 					<EditText
 						android:id="@+id/edtTitle"
 						android:layout_width="match_parent"

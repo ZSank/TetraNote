@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+	</data>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_margin="10dp"
+		tools:context=".ui.fragment.SettingFragment">
+
+
+		<androidx.cardview.widget.CardView
+			app:cardCornerRadius="15dp"
+			app:cardElevation="0dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:background="#F5F5F5"
+			android:shadowColor="@android:color/transparent">
+
+			<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="match_parent"
+				android:layout_height="50dp">
+
+				<TextView
+					android:id="@+id/themeSetting"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Theme"
+					android:layout_marginEnd="150dp"
+					android:textSize="20sp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toStartOf="@+id/themeSwitch"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:src="@drawable/baseline_wb_sunny_24" />
+
+				<com.google.android.material.materialswitch.MaterialSwitch
+					android:id="@+id/themeSwitch"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:layout_constraintStart_toEndOf="@+id/themeSetting"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					android:layout_marginHorizontal="10dp" />
+
+				<ImageView
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:src="@drawable/baseline_nightlight_24" />
+			</LinearLayout>
+
+		</androidx.cardview.widget.CardView>
+
+	</ScrollView>
+</layout>

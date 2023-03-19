@@ -1,6 +1,8 @@
 package com.zsank.tetranote
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
@@ -21,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+		//To show actionBar
+		setSupportActionBar(binding.materialToolbar)
+
 //		val navController = this.findNavController(R.id.fragmentContainerView)
 //		setupActionBarWithNavController(navController)
 	}
@@ -29,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 //		}
 //	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //		val inflater: MenuInflater = menuInflater
-//		inflater.inflate(R.menu.editscrn, menu)
+//		inflater.inflate(R.menu.editmenu, menu)
 //		return true
 //	}
 }

@@ -10,9 +10,27 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:orientation="vertical"
 		tools:context=".MainActivity">
 
 
+		<com.google.android.material.appbar.MaterialToolbar
+			android:id="@+id/materialToolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="@color/md_theme_light_primaryContainer"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="TETRANOTE"
+				android:textSize="25sp"
+				android:textStyle="bold" />
+		</com.google.android.material.appbar.MaterialToolbar>
 		<androidx.fragment.app.FragmentContainerView
 			android:id="@+id/fragmentContainerView"
 			android:name="androidx.navigation.fragment.NavHostFragment"

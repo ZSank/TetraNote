@@ -17,7 +17,7 @@
     <path
         android:pathData="m31.829,12.034 l-4.231,0.014 4.463,19.591 7.506,-14.829z"
         android:strokeWidth="0.004"
-        android:fillColor="#afdde9"
+        android:fillColor="@color/icon_color"
         android:strokeColor="#501616"/>
     <path
         android:pathData="m32.061,31.638 l2.795,-14.803 4.712,-0.026z"
@@ -40,7 +40,7 @@
     <path
         android:pathData="m51.829,31.654l-0.013,-4.231 -19.592,4.464 14.829,7.507z"
         android:strokeWidth="0.004"
-        android:fillColor="#afdde9"
+        android:fillColor="@color/icon_color"
         android:strokeColor="#501616"/>
     <path
         android:pathData="m32.224,31.886l14.803,2.794 0.026,4.712z"
@@ -63,7 +63,7 @@
     <path
         android:pathData="m32.151,51.66l4.231,-0.013 -4.464,-19.592 -7.507,14.829z"
         android:strokeWidth="0.004"
-        android:fillColor="#afdde9"
+        android:fillColor="@color/icon_color"
         android:strokeColor="#501616"/>
     <path
         android:pathData="m31.919,32.055l-2.794,14.803 -4.712,0.026z"
@@ -86,7 +86,7 @@
     <path
         android:pathData="m12.145,31.982l0.013,4.231 19.592,-4.464 -14.829,-7.507z"
         android:strokeWidth="0.004"
-        android:fillColor="#afdde9"
+        android:fillColor="@color/icon_color"
         android:strokeColor="#501616"/>
     <path
         android:pathData="m31.75,31.75l-14.803,-2.794 -0.026,-4.712z"
@@ -108,3 +108,5 @@
         android:fillAlpha="0.255754"/>
   </group>
 </vector>
+
+<!--    #afdde9-->

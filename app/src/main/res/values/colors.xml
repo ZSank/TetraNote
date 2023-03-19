@@ -13,6 +13,8 @@
 	<color name="colorPrimaryDark">#A60E0E</color>
 	<color name="ascent">#E32525</color>
 	<color name="textbcg">#F2F8EEEE</color>
+	<color name="frag_bkg">#ECF3FA</color>
+	<color name="icon_color">#afdde9</color>
 
 <!--	new theme colors-->
 	<color name="seed">#006498</color>
@@ -76,5 +78,7 @@
 	<color name="md_theme_dark_surfaceTint">#92CCFF</color>
 	<color name="md_theme_dark_outlineVariant">#42474E</color>
 	<color name="md_theme_dark_scrim">#000000</color>
-	<color name="frag_bkg">#ECF3FA</color>
+
+
+
 </resources>
