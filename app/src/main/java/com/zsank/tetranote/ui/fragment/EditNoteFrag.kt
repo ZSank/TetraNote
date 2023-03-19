@@ -1,6 +1,8 @@
 package com.zsank.tetranote.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -18,10 +20,11 @@ private const val TAG = "test"
 @AndroidEntryPoint
 class EditNoteFrag : Fragment() {
 	private lateinit var binding: FragmentCreateNoteBinding
-
+	private lateinit var updatedNote: Note
 	//	private lateinit var binding: FragmentEditNoteBinding
 	private val navigationArgs: EditNoteFragArgs by navArgs()
-//	private val viewModel: NoteViewModel by activityViewModels {
+
+	//	private val viewModel: NoteViewModel by activityViewModels {
 //		NoteViewModelFactory(
 //			(activity?.application as NoteApplication).database.noteDao()
 //		)
@@ -49,14 +52,15 @@ class EditNoteFrag : Fragment() {
 
 		viewModel.retrieveNote(receivedId).observe(this.viewLifecycleOwner) {
 			retrievedNote = it
-			displayNote(it)
+			if(binding.edtBody.text.isEmpty()) displayNote(it) //To fill the views first time, with retrievedNote
 		}
 
+//		displayNote(retrievedNote!!)
 		binding.saveFab.setOnClickListener {
-			updateNote(retrievedNote!!)
+			updateNote(retrievedNote!!.id)
 		}
 		binding.deleteFab.setOnClickListener {
-			deleteNote(retrievedNote!!)
+			deleteNote(retrievedNote!!.id)
 			navigateBackToHome()
 		}
 
@@ -67,26 +71,17 @@ class EditNoteFrag : Fragment() {
 		findNavController().navigate(action)
 	}
 
-//	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//		//		val inflater: MenuInflater = menuInflater
-//		inflater.inflate(R.menu.editscrn, menu)
-////		return true
-//		super.onCreateOptionsMenu(menu, inflater)
-//	}
-//	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-//		super.onCreateOptionsMenu(menu, inflater)
-//		inflater.inflate(R.menu.editscrn,menu)
-//	}
-
-	private fun updateNote(retrievedNote: Note) {
-		val updatedNote = Note(
-			retrievedNote.id,
+	//Called when saved button is pressed. This updates the note in Database.
+	private fun updateNote(retrievedNoteId: Int?) {
+		updatedNote = Note(
+			retrievedNoteId,
 			binding.edtTitle.text.toString(),
 			binding.edtBody.text.toString()
 		)
 		viewModel.updateNote(updatedNote)
 	}
 
+	//displaying Note on screen
 	private fun displayNote(note: Note) {
 		binding.apply {
 			edtTitle.setText(note.title)
@@ -94,8 +89,9 @@ class EditNoteFrag : Fragment() {
 		}
 	}
 
-	private fun deleteNote(note: Note) {
-		viewModel.deleteNote(note)
+	//For delete note, only id is needed. Body is not checked while deleting
+	private fun deleteNote(retrievedNoteId: Int?) {
+		viewModel.deleteNote(Note(retrievedNoteId,null, null))
 	}
 
 	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -105,14 +101,25 @@ class EditNoteFrag : Fragment() {
 
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
 		return when (item.itemId) {
-			R.id.deleteNoteMenu-> {
-				deleteNote(retrievedNote!!)
+			R.id.deleteNoteMenu -> {
+				deleteNote(retrievedNote!!.id)
 				navigateBackToHome()
 				true
 
 			}
+			R.id.shareNoteMenu -> {
+				shareNote()
+				true
+			}
 			else -> super.onOptionsItemSelected(item)
 		}
+	}
+
+	private fun shareNote() {
+		val shareIntent = Intent(Intent.ACTION_SEND)
+		shareIntent.type = "text/plain"
+		shareIntent.putExtra(Intent.EXTRA_TEXT, "${binding.edtTitle.text}\n\n${binding.edtBody.text}")
+		startActivity(Intent.createChooser(shareIntent, "Share note"))
 	}
 
 }

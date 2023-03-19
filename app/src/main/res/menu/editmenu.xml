@@ -3,6 +3,9 @@
 	<item
 		android:id="@+id/deleteNoteMenu"
 		android:title="Delete"/>
+	<item
+		android:id="@+id/shareNoteMenu"
+		android:title="Share"/>
 </menu>
 
 <!--Menu can be nested-->
