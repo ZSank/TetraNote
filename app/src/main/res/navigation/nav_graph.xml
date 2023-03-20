@@ -26,6 +26,17 @@
 		<action
 			android:id="@+id/action_homeFrag_to_settingFragment"
 			app:destination="@id/settingFragment" />
+		<action
+			android:id="@+id/action_homeFrag_self"
+			app:destination="@id/homeFrag" >
+			<argument
+				android:name="parentFolderId"
+				android:defaultValue="0" />
+		</action>
+		<argument
+			android:name="parentFolderId"
+			app:argType="integer"
+			android:defaultValue="0" />
 	</fragment>
 	<fragment
 		android:id="@+id/editNoteFrag"
