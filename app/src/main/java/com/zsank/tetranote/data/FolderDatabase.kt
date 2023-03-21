@@ -1,15 +1,29 @@
 package com.zsank.tetranote.data
 
-class FolderDatabase() {
-	fun getFolder(): List<Folder> {
-		return listOf<Folder>(
-			Folder(1, "Note", 0),
-			Folder(2, "Work", 1),
-			Folder(3, "Shopping", 2),
-			Folder(13, "Shopping", 2),
-			Folder(25, "Shopping", 13)
+import androidx.room.Database
+import androidx.room.RoomDatabase
 
-		)
-	}
+@Database(entities = [Folder::class], version = 1, exportSchema = false)
+abstract class FolderDatabase : RoomDatabase() {
+	abstract fun folderDao(): FolderDao
+
+//	companion object {
+//		@Volatile
+//		private var INSTANCE: NoteDatabase? = null
+//		fun getDatabase(context: Context): NoteDatabase {
+//			return INSTANCE ?: synchronized(this) {
+//				val instance = Room.databaseBuilder(
+//					context.applicationContext,
+//					NoteDatabase::class.java,
+//					"note_database"
+//				)
+//					.fallbackToDestructiveMigration()
+//					.build()
+//				INSTANCE = instance
+//				return instance
+//			}
+//		}
+//	}
+
 
 }

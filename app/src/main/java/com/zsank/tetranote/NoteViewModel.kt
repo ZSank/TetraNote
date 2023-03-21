@@ -1,6 +1,9 @@
 package com.zsank.tetranote
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.data.NoteDao
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -36,12 +39,3 @@ class NoteViewModel @Inject constructor(private val noteDao: NoteDao) : ViewMode
 
 }
 
-class NoteViewModelFactory(private val noteDao: NoteDao) : ViewModelProvider.Factory {
-	override fun <T : ViewModel> create(modelClass: Class<T>): T {
-		if (modelClass.isAssignableFrom(NoteViewModel::class.java)) {
-			@Suppress("UNCHECKED_CAST")
-			return NoteViewModel(noteDao) as T
-		}
-		throw IllegalArgumentException("Unknown ViewModel class")
-	}
-}

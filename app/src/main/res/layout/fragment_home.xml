@@ -15,6 +15,16 @@
 		tools:context=".ui.fragment.HomeFrag">
 
 		<com.google.android.material.floatingactionbutton.FloatingActionButton
+			android:id="@+id/AddFolderFab"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="20dp"
+			android:layout_marginBottom="100dp"
+			android:src="@drawable/baseline_folder_24"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+
+		<com.google.android.material.floatingactionbutton.FloatingActionButton
 			android:id="@+id/AddNoteFab"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

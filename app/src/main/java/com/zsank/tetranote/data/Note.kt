@@ -12,4 +12,6 @@ data class Note(
 	val title: String?,
 	@ColumnInfo(name = "body")
 	val body: String?
+//	@ColumnInfo(name = "parent")
+//	val parent: Int = 0
 )
