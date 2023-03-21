@@ -1,9 +1,7 @@
-package com.zsank.roompratice
+package com.zsank.tetranote.data
 
 import android.content.Context
 import androidx.room.Room
-import com.zsank.tetranote.data.NoteDao
-import com.zsank.tetranote.data.NoteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,14 +14,26 @@ import javax.inject.Singleton
 class DatabaseModule {
 
 	@Provides
-	fun provideChannelDao(noteDatabase: NoteDatabase): NoteDao {
+	fun provideNoteDao(noteDatabase: NoteDatabase): NoteDao {
 		return noteDatabase.noteDao()
 	}
 
 	@Provides
 	@Singleton
-	fun provideDatabase(@ApplicationContext context: Context): NoteDatabase {
+	fun provideNoteDatabase(@ApplicationContext context: Context): NoteDatabase {
 		return Room.databaseBuilder(context, NoteDatabase::class.java, "note_database")
+			.build()
+	}
+
+	@Provides
+	fun provideFolderDao(folderDatabase: FolderDatabase): FolderDao {
+		return folderDatabase.folderDao()
+	}
+
+	@Provides
+	@Singleton
+	fun provideFolderDatabase(@ApplicationContext context: Context): FolderDatabase {
+		return Room.databaseBuilder(context, FolderDatabase::class.java, "folder_database")
 			.build()
 	}
 }

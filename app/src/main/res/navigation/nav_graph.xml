@@ -26,6 +26,20 @@
 		<action
 			android:id="@+id/action_homeFrag_to_settingFragment"
 			app:destination="@id/settingFragment" />
+		<action
+			android:id="@+id/action_homeFrag_self"
+			app:destination="@id/homeFrag" >
+			<argument
+				android:name="parentFolderId"
+				android:defaultValue="0" />
+		</action>
+		<argument
+			android:name="parentFolderId"
+			app:argType="integer"
+			android:defaultValue="0" />
+		<action
+			android:id="@+id/action_homeFrag_to_newFolderFrag"
+			app:destination="@id/newFolderFrag" />
 	</fragment>
 	<fragment
 		android:id="@+id/editNoteFrag"
@@ -50,6 +64,10 @@
 			android:id="@+id/action_createNoteFrag_to_homeFrag"
 			app:destination="@id/homeFrag"
 			app:popUpTo="@id/homeFrag" />
+		<argument
+			android:name="parentIdForNote"
+			app:argType="integer"
+			android:defaultValue="0" />
 	</fragment>
 	<fragment
 		android:id="@+id/aboutFrag"
@@ -69,4 +87,14 @@
 			android:id="@+id/action_settingFragment_to_homeFrag"
 			app:destination="@id/homeFrag" />
 	</fragment>
+	<dialog
+		android:id="@+id/newFolderFrag"
+		android:name="com.zsank.tetranote.ui.fragment.NewFolderFrag"
+		android:label="fragment_new_folder"
+		tools:layout="@layout/fragment_new_folder" >
+		<argument
+			android:name="parentFolder"
+			app:argType="integer"
+			android:defaultValue="0" />
+	</dialog>
 </navigation>

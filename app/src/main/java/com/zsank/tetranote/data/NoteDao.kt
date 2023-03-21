@@ -25,4 +25,7 @@ interface NoteDao {
 	@Query("select * from note where id = :id")
 	suspend fun getSingleNote(id: Int): Note
 
+	@Query("select * from note where parent = :parentId")
+	fun allNoteInFolder(parentId: Int): Flow<List<Note>>
+
 }
