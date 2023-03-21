@@ -1,6 +1,6 @@
 # TetraNote
 Notes android app
-1. TetraNotes Android app allows users to create, edit, and organize their notes in a user-friendly way. 
+1. TetraNote Android app allows users to create, edit, and organize their notes in a user-friendly way. 
 2. The app was built using Kotlin programming language and MVVM architecture to ensure code maintainability and scalability. 
 3. I used Hilt to simplify dependency injection and Room database to enable efficient and secure data storage. 
 4. The app also uses LiveData and Data Binding to update the user interface in real-time.
