@@ -22,6 +22,8 @@ private const val TAG = "test"
 @AndroidEntryPoint
 class HomeFrag : Fragment() {
 
+	//TODO: Add current Folder list, use just string like mxPlayer
+
 	private val noteViewModel: NoteViewModel by viewModels()
 	private val folderViewModel: FolderViewModel by viewModels()
 	private lateinit var note: Note
@@ -51,10 +53,13 @@ class HomeFrag : Fragment() {
 		binding.rcyViewHome.adapter = noteAdapter
 		binding.rcyViewHome.isNestedScrollingEnabled = false
 
-		noteViewModel.allNotes.observe(this.viewLifecycleOwner) { noteList ->
-			noteAdapter.submitList(
-				noteList
-			)
+//		noteViewModel.allNotes.observe(this.viewLifecycleOwner) { noteList ->
+//			noteAdapter.submitList(
+//				noteList
+//			)
+//		}
+		noteViewModel.allNoteInFolder(receivedParentFolderId).observe(this.viewLifecycleOwner) {
+			noteAdapter.submitList(it)
 		}
 
 
@@ -71,28 +76,31 @@ class HomeFrag : Fragment() {
 			folderAdapter.submitList(it)
 
 		}
+		//TODO: SetUp diffUtil for Folder, since for contentcheck it is set to false
 
 
-		//diffutil not working. Duplicate ids are also added.
 		binding.AddNoteFab.setOnClickListener {
 			addNote()
 		}
 		binding.AddFolderFab.setOnClickListener {
-			addFolder()
-			Log.d(TAG, "FabClicked")
+			val action = HomeFragDirections.actionHomeFragToNewFolderFrag(receivedParentFolderId)
+			findNavController().navigate(action)
+
+//			addFolder()
+//			val newFragment = NewFolderFrag()
+//			val supportFragmentManager = parentFragmentManager
+//			newFragment.show(supportFragmentManager, "game")
+//			Log.d(TAG, "${supportFragmentManager.fragments}")
+
 		}
 
 	}
 
 	private fun addFolder() {
-		//TODO: Create addFolder Interface interface. Maybe the interface fragment should have logic regarding room , navgraph etc.
-		folderViewModel.insertFolder(Folder(null, "Folder1", receivedParentFolderId))
+		folderViewModel.insertFolder(Folder(null, "Folder$receivedParentFolderId", receivedParentFolderId))
 	}
+	//TODO: Folder Creation can also take place inside HomeFrag, dialog will only send the folder name
 
-	private fun addNote() {
-		val action = HomeFragDirections.actionHomeFragToCreateNoteFrag()
-		findNavController().navigate(action)
-	}
 
 	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 		super.onCreateOptionsMenu(menu, inflater)
@@ -112,6 +120,11 @@ class HomeFrag : Fragment() {
 			}
 			else -> super.onOptionsItemSelected(item)
 		}
+	}
+
+	private fun addNote() {
+		val action = HomeFragDirections.actionHomeFragToCreateNoteFrag(receivedParentFolderId)
+		findNavController().navigate(action)
 	}
 
 	private fun navigateToAbout() {

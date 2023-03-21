@@ -24,11 +24,6 @@ class EditNoteFrag : Fragment() {
 	//	private lateinit var binding: FragmentEditNoteBinding
 	private val navigationArgs: EditNoteFragArgs by navArgs()
 
-	//	private val viewModel: NoteViewModel by activityViewModels {
-//		NoteViewModelFactory(
-//			(activity?.application as NoteApplication).database.noteDao()
-//		)
-//	}
 	private val viewModel: NoteViewModel by viewModels()
 	private var retrievedNote: Note? = null
 

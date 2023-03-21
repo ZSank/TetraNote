@@ -14,6 +14,11 @@ import javax.inject.Inject
 class NoteViewModel @Inject constructor(private val noteDao: NoteDao) : ViewModel() {
 
 	val allNotes: LiveData<List<Note>> = noteDao.showAllNote().asLiveData()
+
+	fun allNoteInFolder(id: Int): LiveData<List<Note>> {
+		return noteDao.allNoteInFolder(id).asLiveData()
+	}
+
 	val count = 50
 	fun insertNote(note: Note) {
 		viewModelScope.launch {
