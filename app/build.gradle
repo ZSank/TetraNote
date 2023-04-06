@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.notesapp"
+        applicationId "com.zsank.tetranote"
         minSdk 24
         targetSdk 33
         versionCode 1
