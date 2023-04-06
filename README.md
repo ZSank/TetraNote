@@ -1,4 +1,4 @@
-# TetraNote
+# TetraNote <img src = "https://github.com/ZSank/TetraNote/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width = 25 >
 Notes android app
 1. TetraNote Android app allows users to create, edit, and organize their notes in a user-friendly way. 
 2. The app was built using Kotlin programming language and MVVM architecture to ensure code maintainability and scalability. 
@@ -7,9 +7,10 @@ Notes android app
 
 # Project Features:
 
-| Home Screen                                                                                                                       | Note Edit Screen                                                                                                                 |
-|-----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Home Screen|Note Edit Screen|
+|------------|----------------|
 | <img src = "https://user-images.githubusercontent.com/123537240/225881177-dc83b3a5-49f0-4da7-8c53-8f6582bfbe1c.png" width = 250 > | <img src = "https://user-images.githubusercontent.com/123537240/225881058-b37a8360-d9c0-46b8-8f07-c96650000cc4.png" width = 250> |
+|||
 
 The app has several features, including:
 
