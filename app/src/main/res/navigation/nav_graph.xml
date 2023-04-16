@@ -8,7 +8,7 @@
 	<fragment
 		android:id="@+id/homeFrag"
 		android:name="com.zsank.tetranote.ui.fragment.HomeFrag"
-		android:label="fragment_home"
+		android:label="Notes"
 		tools:layout="@layout/fragment_home">
 		<action
 			android:id="@+id/action_homeFrag_to_editNoteFrag"
@@ -44,7 +44,7 @@
 	<fragment
 		android:id="@+id/editNoteFrag"
 		android:name="com.zsank.tetranote.ui.fragment.EditNoteFrag"
-		android:label="fragment_edit_note"
+		android:label=""
 		tools:layout="@layout/fragment_edit_note">
 		<action
 			android:id="@+id/action_editNoteFrag_to_homeFrag"
@@ -58,7 +58,7 @@
 	<fragment
 		android:id="@+id/createNoteFrag"
 		android:name="com.zsank.tetranote.ui.fragment.CreateNoteFragment"
-		android:label="fragment_create_note"
+		android:label=" "
 		tools:layout="@layout/fragment_create_note">
 		<action
 			android:id="@+id/action_createNoteFrag_to_homeFrag"
@@ -72,7 +72,7 @@
 	<fragment
 		android:id="@+id/aboutFrag"
 		android:name="com.zsank.tetranote.ui.fragment.AboutFrag"
-		android:label="AboutFrag" >
+		android:label="About" >
 		<action
 			android:id="@+id/action_aboutFrag_to_homeFrag"
 			app:destination="@id/homeFrag"

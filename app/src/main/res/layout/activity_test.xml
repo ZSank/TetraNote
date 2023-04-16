@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".testfrag.TestActivity"
+		android:orientation="vertical">
+
+<!--		<com.google.android.material.appbar.AppBarLayout-->
+<!--			android:layout_width="match_parent"-->
+<!--			android:layout_height="wrap_content">-->
+
+<!--			<com.google.android.material.appbar.MaterialToolbar-->
+<!--				android:id="@+id/materialToolbar"-->
+<!--				android:layout_width="match_parent"-->
+<!--				android:layout_height="?attr/actionBarSize"-->
+<!--				app:menu="@menu/menu_note_home"-->
+<!--				app:navigationIcon="@drawable/baseline_folder_24" />-->
+<!--		</com.google.android.material.appbar.AppBarLayout>-->
+
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/materialToolbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+		
+		<androidx.fragment.app.FragmentContainerView
+			android:id="@+id/fragmentContainerView"
+			android:name="androidx.navigation.fragment.NavHostFragment"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:defaultNavHost="true"
+			app:navGraph="@navigation/testnavgraph" />
+	</LinearLayout>
+</layout>

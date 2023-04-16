@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/testnavgraph"
+	app:startDestination="@id/testFrag1">
+
+	<fragment
+		android:id="@+id/testFrag1"
+		android:name="com.zsank.tetranote.testfrag.TestFrag1"
+		android:label="fragment_test_frag1"
+		tools:layout="@layout/fragment_test_frag1" >
+		<action
+			android:id="@+id/action_testFrag1_to_testFrag2"
+			app:destination="@id/testFrag2" />
+	</fragment>
+	<fragment
+		android:id="@+id/testFrag2"
+		android:name="com.zsank.tetranote.testfrag.TestFrag2"
+		android:label="fragment_test_frag2"
+		tools:layout="@layout/fragment_test_frag2" />
+</navigation>
