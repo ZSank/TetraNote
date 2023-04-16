@@ -14,8 +14,8 @@ Notes android app
 
 The app has several features, including:
 
-1. Note Creation: Users can create notes with a title, description, and optional category, using a simple and intuitive interface.
-2. Note Organization: Users can organize their notes by category and view them in a list or grid layout for easy access.
+1. Note Creation: Users can create notes with a title, description using a simple and intuitive interface.
+2. Note Organization: Users can organize their notes in different folders. Folders can be nested.
 3. Note Editing: Users can edit their notes anytime by tapping on the note they want to edit.
 4. Note Deletion: Users can delete notes they no longer need.
 5. Dark Mode: The app also features a dark mode option for users who prefer a darker color scheme.

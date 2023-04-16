@@ -24,6 +24,7 @@ class AboutFrag : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+		
 		binding.AboutGithub.setOnClickListener {
 			val webIntent: Intent = Intent(
 				Intent.ACTION_VIEW,

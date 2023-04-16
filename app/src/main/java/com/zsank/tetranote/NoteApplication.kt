@@ -4,13 +4,14 @@ import android.app.Application
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
 
 @HiltAndroidApp
 class NoteApplication : Application() {
 	//	val database: NoteDatabase by lazy { NoteDatabase.getDatabase(this) }
 	override fun onCreate() {
 		super.onCreate()
-
+		Timber.plant(Timber.DebugTree())
 		val sharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
 		val isDarkMode = sharedPreferences.getBoolean("isDarkMode", false)
 		if (isDarkMode) {
