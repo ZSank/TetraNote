@@ -26,7 +26,7 @@ This project is still work in progress
 ## Todo
 1. Firebase Authentication using google
 2. Basic UI Animations
-3. Update Logo
+3. Update Logo :heavy_check_mark:
 4. Local Notifications
 5. Implement Hilt :heavy_check_mark:
 
