@@ -13,27 +13,28 @@
 		android:orientation="vertical"
 		tools:context=".MainActivity">
 
-				<com.google.android.material.appbar.AppBarLayout
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content">
+		<com.google.android.material.appbar.AppBarLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
 
-					<com.google.android.material.appbar.MaterialToolbar
-						android:id="@+id/topAppBar"
-						android:layout_width="match_parent"
-						app:menu="@menu/emptymenu"
-						android:layout_height="?attr/actionBarSize" />
-				</com.google.android.material.appbar.AppBarLayout>
-<!--		<Button-->
-<!--			android:id="@+id/backstackBut"-->
-<!--			android:layout_width="match_parent"-->
-<!--			android:layout_height="20dp"/>-->
+			<com.google.android.material.appbar.MaterialToolbar
+				android:id="@+id/topAppBar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				android:background="#DCE8F4"
+				app:menu="@menu/emptymenu" />
+		</com.google.android.material.appbar.AppBarLayout>
+		<!--		<Button-->
+		<!--			android:id="@+id/backstackBut"-->
+		<!--			android:layout_width="match_parent"-->
+		<!--			android:layout_height="20dp"/>-->
 
 
-<!--		<androidx.appcompat.widget.Toolbar-->
-<!--			android:id="@+id/topAppBar"-->
-<!--			android:layout_width="match_parent"-->
-<!--			android:background="@color/md_theme_light_primary"-->
-<!--			android:layout_height="?attr/actionBarSize" />-->
+		<!--		<androidx.appcompat.widget.Toolbar-->
+		<!--			android:id="@+id/topAppBar"-->
+		<!--			android:layout_width="match_parent"-->
+		<!--			android:background="@color/md_theme_light_primary"-->
+		<!--			android:layout_height="?attr/actionBarSize" />-->
 
 		<androidx.fragment.app.FragmentContainerView
 			android:id="@+id/fragmentContainerView"

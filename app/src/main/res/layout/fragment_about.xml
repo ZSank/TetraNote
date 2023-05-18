@@ -23,44 +23,58 @@
 			android:elevation="5dp"
 			android:layout_margin="10dp">
 
+
 			<LinearLayout
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:orientation="vertical">
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_height="wrap_content">
 
-				<TextView
-					android:id="@+id/AboutName"
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<TextView
+						android:id="@+id/AboutName"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:text="Sanket Zade"
+						android:textSize="25sp"
+						android:layout_margin="10dp" />
+
+					<TextView
+						android:id="@+id/AboutEmail"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:text="zadesank@gmail.com"
+						android:textSize="15sp"
+						android:layout_margin="10dp" />
+
+					<TextView
+						android:id="@+id/AboutGithub"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:text="Github.com/ZSank"
+						android:textColor="@color/md_theme_dark_primaryContainer"
+						android:textSize="15sp"
+						android:layout_margin="10dp" />
+
+					<TextView
+						android:id="@+id/AboutLinkedIn"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:text="LinkedIn.com/in/SanketZade"
+						android:textColor="@color/md_theme_dark_primaryContainer"
+						android:textSize="15sp"
+						android:layout_margin="10dp" />
+				</LinearLayout>
+
+				<ImageView
+					android:padding="20dp"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
-					android:text="Sanket Zade"
-					android:textSize="25sp"
-					android:layout_margin="10dp" />
-
-				<TextView
-					android:id="@+id/AboutEmail"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:text="zadesank@gmail.com"
-					android:textSize="15sp"
-					android:layout_margin="10dp" />
-
-				<TextView
-					android:id="@+id/AboutGithub"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:text="Github.com/ZSank"
-					android:textColor="@color/md_theme_dark_primaryContainer"
-					android:textSize="15sp"
-					android:layout_margin="10dp" />
-
-				<TextView
-					android:id="@+id/AboutLinkedIn"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:text="LinkedIn.in/SanketZade"
-					android:textColor="@color/md_theme_dark_primaryContainer"
-					android:textSize="15sp"
-					android:layout_margin="10dp" />
+					android:scaleType="fitCenter"
+					android:src="@drawable/sanketphoto" />
 			</LinearLayout>
 
 		</androidx.cardview.widget.CardView>

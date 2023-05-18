@@ -42,6 +42,7 @@
 	<color name="md_theme_light_outlineVariant">#C2C7CE</color>
 	<color name="md_theme_light_scrim">#000000</color>
 	<color name="md_theme_dark_primary">#92CCFF</color>
+
 	<color name="md_theme_dark_onPrimary">#003351</color>
 	<color name="md_theme_dark_primaryContainer">#004B73</color>
 	<color name="md_theme_dark_onPrimaryContainer">#CCE5FF</color>
