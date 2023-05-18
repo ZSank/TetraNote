@@ -1,9 +1,9 @@
 package com.zsank.tetranote.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -56,11 +56,16 @@ class HomeFrag : Fragment() {
 		//
 		receivedParentFolderId = navigationArgs.parentFolderId
 		
-		val lamda: (Note) -> Unit = { passedNote ->
+		val itemClicked: (Note) -> Unit = { passedNote ->
 			val action = HomeFragDirections.actionHomeFragToEditNoteFrag(passedNote.id!!)
 			findNavController().navigate(action)
 		}
-		val noteAdapter = NoteAdapter(lamda)
+		val moreOptionClicked: (View,Note) -> Unit = { view,note ->
+			showMenu(view,note)
+//			Toast.makeText(requireContext(), "${}", Toast.LENGTH_SHORT).show()
+		}
+		
+		val noteAdapter = NoteAdapter(itemClicked, moreOptionClicked)
 		binding.rcyViewHome.adapter = noteAdapter
 		binding.rcyViewHome.isNestedScrollingEnabled = false
 
@@ -146,6 +151,40 @@ class HomeFrag : Fragment() {
 	private fun navigateToAbout() {
 		val action = HomeFragDirections.actionHomeFragToAboutFrag()
 		findNavController().navigate(action)
+	}
+	
+	private fun showMenu(v: View,note: Note) {
+		PopupMenu(requireContext(), v).apply {
+			// MainActivity implements OnMenuItemClickListener
+			
+			setOnMenuItemClickListener { item ->
+				when (item.itemId) {
+					R.id.deleteNoteMenu -> {
+						deleteNote(note.id)
+						Timber.d("Delete Menu Clicked")
+						true
+					}
+					R.id.shareNoteMenu -> {
+						shareNote(note)
+						Timber.d("Share Menu Clicked")
+						true
+					}
+					else -> false
+				}
+			}
+			inflate(R.menu.editmenu)
+			show()
+		}
+	}
+	private fun deleteNote(noteId: Int?) {
+		noteViewModel.deleteNote(Note(noteId,null, null))
+	}
+	
+	private fun shareNote(note: Note) {
+		val shareIntent = Intent(Intent.ACTION_SEND)
+		shareIntent.type = "text/plain"
+		shareIntent.putExtra(Intent.EXTRA_TEXT, "${note.title}\n\n${note.body}")
+		startActivity(Intent.createChooser(shareIntent, "Share note"))
 	}
 }
 
