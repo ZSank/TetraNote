@@ -12,31 +12,52 @@
 		tools:layout="@layout/fragment_home">
 		<action
 			android:id="@+id/action_homeFrag_to_editNoteFrag"
-			app:destination="@id/editNoteFrag">
+			app:destination="@id/editNoteFrag"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right">
 			<argument
 				android:name="NoteId"
 				android:defaultValue="0" />
 		</action>
 		<action
 			android:id="@+id/action_homeFrag_to_createNoteFrag"
-			app:destination="@id/createNoteFrag" />
+			app:destination="@id/createNoteFrag"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_homeFrag_to_aboutFrag"
-			app:destination="@id/aboutFrag" />
+			app:destination="@id/aboutFrag"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_homeFrag_to_settingFragment"
-			app:destination="@id/settingFragment" />
+			app:destination="@id/settingFragment"
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right" />
 		<action
 			android:id="@+id/action_homeFrag_self"
-			app:destination="@id/homeFrag" >
+			app:destination="@id/homeFrag"
+
+			app:enterAnim="@anim/slide_in_right"
+			app:exitAnim="@anim/slide_out_left"
+			app:popEnterAnim="@anim/slide_in_left"
+			app:popExitAnim="@anim/slide_out_right">
 			<argument
 				android:name="parentFolderId"
 				android:defaultValue="0" />
 		</action>
 		<argument
 			android:name="parentFolderId"
-			app:argType="integer"
-			android:defaultValue="0" />
+			android:defaultValue="0"
+			app:argType="integer" />
 		<action
 			android:id="@+id/action_homeFrag_to_newFolderFrag"
 			app:destination="@id/newFolderFrag" />
@@ -66,13 +87,13 @@
 			app:popUpTo="@id/homeFrag" />
 		<argument
 			android:name="parentIdForNote"
-			app:argType="integer"
-			android:defaultValue="0" />
+			android:defaultValue="0"
+			app:argType="integer" />
 	</fragment>
 	<fragment
 		android:id="@+id/aboutFrag"
 		android:name="com.zsank.tetranote.ui.fragment.AboutFrag"
-		android:label="About" >
+		android:label="About">
 		<action
 			android:id="@+id/action_aboutFrag_to_homeFrag"
 			app:destination="@id/homeFrag"
@@ -82,7 +103,7 @@
 		android:id="@+id/settingFragment"
 		android:name="com.zsank.tetranote.ui.fragment.SettingFragment"
 		android:label="fragment_setting"
-		tools:layout="@layout/fragment_setting" >
+		tools:layout="@layout/fragment_setting">
 		<action
 			android:id="@+id/action_settingFragment_to_homeFrag"
 			app:destination="@id/homeFrag" />
@@ -91,10 +112,10 @@
 		android:id="@+id/newFolderFrag"
 		android:name="com.zsank.tetranote.ui.fragment.NewFolderFrag"
 		android:label="fragment_new_folder"
-		tools:layout="@layout/fragment_new_folder" >
+		tools:layout="@layout/fragment_new_folder">
 		<argument
 			android:name="parentFolder"
-			app:argType="integer"
-			android:defaultValue="0" />
+			android:defaultValue="0"
+			app:argType="integer" />
 	</dialog>
 </navigation>
