@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.NoteItemHomeBinding
+import timber.log.Timber
 
 class NoteAdapter(private val onItemClicked: (Note) -> Unit) :
 	ListAdapter<Note, NoteAdapter.ViewHolder>(DiffCallback) {
@@ -44,6 +45,10 @@ class NoteAdapter(private val onItemClicked: (Note) -> Unit) :
 		val current = getItem(position)
 		holder.itemView.setOnClickListener {
 			onItemClicked(current)
+		}
+		holder.itemView.setOnLongClickListener {
+			Timber.d("longClicked")
+			true
 		}
 		holder.bind(current)
 	}

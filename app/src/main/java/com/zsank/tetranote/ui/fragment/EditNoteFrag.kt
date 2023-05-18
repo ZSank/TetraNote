@@ -60,7 +60,12 @@ class EditNoteFrag : Fragment() {
 		}
 
 	}
-
+	
+	override fun onDestroy() {
+		super.onDestroy()
+		updateNote(retrievedNote!!.id)
+	}
+	
 	private fun navigateBackToHome() {
 		val action = EditNoteFragDirections.actionEditNoteFragToHomeFrag()
 		findNavController().navigate(action)

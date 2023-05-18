@@ -31,7 +31,14 @@ class AboutFrag : Fragment() {
 				Uri.parse("https://www.github.com/zsank")
 			)
 			startActivity(webIntent)
-
+		}
+		
+		binding.AboutLinkedIn.setOnClickListener {
+			val webIntent: Intent = Intent(
+				Intent.ACTION_VIEW,
+				Uri.parse("https://www.linkedin.com/in/sanketzade")
+			)
+			startActivity(webIntent)
 		}
 	}
 
