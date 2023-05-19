@@ -2,7 +2,12 @@ package com.zsank.tetranote.ui.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -39,8 +44,7 @@ class HomeFrag : Fragment() {
 	}
 	
 	override fun onCreateView(
-		inflater: LayoutInflater, container: ViewGroup?,
-		savedInstanceState: Bundle?
+		inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
 	): View? {
 		// Inflate the layout for this fragment
 		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
@@ -60,8 +64,8 @@ class HomeFrag : Fragment() {
 			val action = HomeFragDirections.actionHomeFragToEditNoteFrag(passedNote.id!!)
 			findNavController().navigate(action)
 		}
-		val moreOptionClicked: (View,Note) -> Unit = { view,note ->
-			showMenu(view,note)
+		val moreOptionClicked: (View, Note) -> Unit = { view, note ->
+			showMenu(view, note)
 //			Toast.makeText(requireContext(), "${}", Toast.LENGTH_SHORT).show()
 		}
 		
@@ -116,9 +120,7 @@ class HomeFrag : Fragment() {
 	private fun addFolder() {
 		folderViewModel.insertFolder(
 			Folder(
-				null,
-				"Folder$receivedParentFolderId",
-				receivedParentFolderId
+				null, "Folder$receivedParentFolderId", receivedParentFolderId
 			)
 		)
 	}
@@ -127,19 +129,44 @@ class HomeFrag : Fragment() {
 	override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 		inflater.inflate(R.menu.menu_note_home, menu)
 	}
-
+	
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
 		return when (item.itemId) {
 			R.id.AboutMenu -> {
 				navigateToAbout()
 				true
-
+				
 			}
+			
 			R.id.AddNoteMenu -> {
 				addNote()
 				true
 			}
+			
+			R.id.AddSampleData -> {
+				addSampleData()
+				true
+			}
+			
 			else -> super.onOptionsItemSelected(item)
+		}
+	}
+	
+	private fun addSampleData() {
+		listOf(
+			Note(null, "Test Note1", "This is the body of test Note1",0),
+			Note(null, "Test Note2", "This is the body of test Note2",0),
+			Note(null, "Test Note4", "This is the body of test Note2",1),
+		).forEach {
+			noteViewModel.insertNote(it)
+		}
+		
+		listOf(
+			Folder(null, "Folder1", 0),
+			Folder(null, "Folder2", 0),
+			Folder(null, "Folder8", 1),
+		).forEach {
+			folderViewModel.insertFolder(it)
 		}
 	}
 	
@@ -153,7 +180,7 @@ class HomeFrag : Fragment() {
 		findNavController().navigate(action)
 	}
 	
-	private fun showMenu(v: View,note: Note) {
+	private fun showMenu(v: View, note: Note) {
 		PopupMenu(requireContext(), v).apply {
 			// MainActivity implements OnMenuItemClickListener
 			
@@ -164,11 +191,13 @@ class HomeFrag : Fragment() {
 						Timber.d("Delete Menu Clicked")
 						true
 					}
+					
 					R.id.shareNoteMenu -> {
 						shareNote(note)
 						Timber.d("Share Menu Clicked")
 						true
 					}
+					
 					else -> false
 				}
 			}
@@ -176,8 +205,9 @@ class HomeFrag : Fragment() {
 			show()
 		}
 	}
+	
 	private fun deleteNote(noteId: Int?) {
-		noteViewModel.deleteNote(Note(noteId,null, null))
+		noteViewModel.deleteNote(Note(noteId, null, null))
 	}
 	
 	private fun shareNote(note: Note) {

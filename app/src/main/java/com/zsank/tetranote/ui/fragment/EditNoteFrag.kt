@@ -14,6 +14,7 @@ import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 private const val TAG = "test"
 
@@ -73,6 +74,7 @@ class EditNoteFrag : Fragment() {
 
 	//Called when saved button is pressed. This updates the note in Database.
 	private fun updateNote(retrievedNoteId: Int?) {
+		Timber.d("updateNote: $retrievedNoteId")
 		updatedNote = Note(
 			retrievedNoteId,
 			binding.edtTitle.text.toString(),
