@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.zsank.tetranote.FolderViewModel
+import com.zsank.tetranote.viewmodel.FolderViewModel
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Folder
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.zsank.tetranote
+package com.zsank.tetranote.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

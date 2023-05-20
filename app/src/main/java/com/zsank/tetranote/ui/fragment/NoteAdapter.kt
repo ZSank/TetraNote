@@ -4,12 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.zsank.tetranote.NoteViewModel
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.NoteItemHomeBinding

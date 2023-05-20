@@ -1,7 +1,6 @@
 package com.zsank.tetranote.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.zsank.tetranote.NoteViewModel
+import com.zsank.tetranote.viewmodel.NoteViewModel
 import com.zsank.tetranote.R
 import com.zsank.tetranote.data.Note
 import com.zsank.tetranote.databinding.FragmentCreateNoteBinding
